@@ -44,6 +44,38 @@
             color: #fff !important;
             border-radius: 4px !important;
         }
+
+        /* === CORRECTIONS MOBILE & STRUCTURE === */
+        
+        /* Enleve la limitation absurde de 80% sur les petits et moyens ecrans */
+        .markdown-section {
+            max-width: 900px !important;
+            margin: 0 auto;
+        }
+
+        /* Tablettes & Mobiles */
+        @media screen and (max-width: 768px) {
+            .markdown-section {
+                max-width: 100% !important; /* Pleine largeur */
+                padding: 30px 15px !important; /* Marges confortables */
+            }
+
+            /* Empeche les grands titres ou les blocks (comme CAUTION dans l'API) de depasser */
+            .markdown-section h1, 
+            .markdown-section h2, 
+            .markdown-section h3, 
+            .markdown-section blockquote {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+                width: 100%;
+                box-sizing: border-box !important;
+            }
+
+            /* S'assure que le menu ne force pas de largeur etrange */
+            body {
+                overflow-x: hidden;
+            }
+        }
     </style>
 </head>
 <body>
