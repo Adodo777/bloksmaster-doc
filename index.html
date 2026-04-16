@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation - Blocks Master & SiteMaster</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Documentation complete du plugin Blocks Master">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    
+    <!-- Theme Docsify (Vue est tres clair et propre) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+    
+    <style>
+        :root {
+            --theme-color: #4f46e5;
+            --docsifytabs-border-color: #ededed;
+        }
+
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+        }
+
+        main {
+            width: 100%;    
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            
+        }
+
+        /* Personnalisation propre du bouton copie */
+        .docsify-copy-code-button {
+            background-color: var(--theme-color) !important;
+            color: #fff !important;
+            border-radius: 4px !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">Chargement de la documentation...</div>
+    <script>
+        window.$docsify = {
+            name: 'Blocks Master / SiteMaster',
+            repo: '',
+            loadSidebar: true,
+            subMaxLevel: 3,
+            auto2top: true,
+            relativePath: true,
+            copyCode: {
+                buttonText: 'Copier',
+                errorText: 'Erreur',
+                successText: 'Copie'
+            }
+        }
+    </script>
+    
+    <!-- Moteur Docsify -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+    
+    <!-- Plugin : Copier le code (Copy to Clipboard) -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    
+    <!-- Plugins : Coloration syntaxique -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-markup-templating.min.js"></script>
+</body>
+</html>
