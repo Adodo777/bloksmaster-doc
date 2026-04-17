@@ -1,190 +1,190 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SiteMaster — Données & Modèles — Blocks Master Documentation</title>
-  <meta name="description" content="Guide SiteMaster : créez des structures de données (Groupes, Champs, Items), liez-les à des pages modèles et bénéficiez d'un routage dynamique automatique.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  <style>
-    .prose pre { margin: 0; background: transparent; padding: 0; }
-    .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #4338ca; }
-    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>SiteMaster — Données & Modèles — Blocks Master Documentation</title>
+ <meta name="description" content="Guide SiteMaster : créez des structures de données (Groupes, Champs, Items), liez-les à des pages modèles et bénéficiez d'un routage dynamique automatique.">
+ <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+ <style>
+ .prose pre { margin: 0; background: transparent; padding: 0; }
+ .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; -radius: 4px; font-size: 0.85em; color: #4338ca; }
+ ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; -radius: 3px; }
+ </style>
 </head>
 <body class="bg-slate-50 font-sans">
 
-  <!-- SIDEBAR -->
-  <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 overflow-y-auto z-20 flex flex-col">
-    <div class="px-6 py-6 border-b border-slate-700">
-      <div class="flex items-center gap-2 mb-1">
-        <div class="w-7 h-7 bg-indigo-600 rounded-md flex items-center justify-center">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        </div>
-        <span class="text-white font-bold text-sm">Blocks Master</span>
-      </div>
-      <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
-    </div>
-    <nav class="flex-1 px-4 py-6 space-y-1">
-      <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
-      <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        Accueil
-      </a>
-      <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Le Lab
-      </a>
-      <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
-        SiteMaster
-      </a>
-      <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        Formulaires Headless
-      </a>
-      <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        Icônes Lucide
-      </a>
-      <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        Référence API
-      </a>
-    </nav>
-    <div class="px-4 py-4 border-t border-slate-700">
-      <p class="text-slate-500 text-xs">Développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
-    </div>
-  </aside>
+ <!-- SIDEBAR -->
+ <aside class="lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-64 bg-slate-900 lg:overflow-y-auto z-20 flex flex-col relative w-full h-auto">
+ <div class="px-6 py-6 -b -slate-700">
+ <div class="flex items-center gap-2 mb-1">
+ <div class="w-7 h-7 bg-indigo-600 rounded-none flex items-center justify-center">
+ <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+ </div>
+ <span class="text-white font-bold text-sm">Blocks Master</span>
+ </div>
+ <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
+ </div>
+ <nav class="flex-1 px-4 py-6 space-y-1">
+ <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
+ <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+ Accueil
+ </a>
+ <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+ Le Lab
+ </a>
+ <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium bg-indigo-600 text-white">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+ SiteMaster
+ </a>
+ <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+ Formulaires Headless
+ </a>
+ <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ Icônes Lucide
+ </a>
+ <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+ Référence API
+ </a>
+ </nav>
+ <div class="px-4 py-4 -t -slate-700">
+ <p class="text-slate-500 text-xs">Développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
+ </div>
+ </aside>
 
-  <!-- MAIN CONTENT -->
-  <main class="ml-64 min-h-screen">
-    <article class="max-w-4xl mx-auto px-8 py-12 prose prose-slate prose-indigo prose-pre:rounded-xl prose-pre:bg-slate-800 prose-pre:shadow-lg max-w-none">
+ <!-- MAIN CONTENT -->
+ <main class="lg:ml-64 min-h-screen pt-4 lg:pt-0">
+ <article class="max-w-4xl mx-auto px-8 py-12 prose prose-slate prose-indigo prose-pre:rounded-none prose-pre:bg-slate-800 prose-pre: max-w-none">
 
-      <div class="not-prose mb-2">
-        <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Module 2</span>
-      </div>
-      <h1>SiteMaster — Données &amp; Modèles</h1>
-      <p class="lead">SiteMaster transforme WordPress en un véritable CMS "Content-First". Créez des structures de données personnalisées, liez-les à des pages modèles, et bénéficiez d'un routage URL automatique sans une seule ligne de configuration.</p>
+ <div class="not-prose mb-2">
+ <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Module 2</span>
+ </div>
+ <h1>SiteMaster — Données &amp; Modèles</h1>
+ <p class="lead">SiteMaster transforme WordPress en un véritable CMS "Content-First". Créez des structures de données personnalisées, liez-les à des pages modèles, et bénéficiez d'un routage URL automatique sans une seule ligne de configuration.</p>
 
-      <hr>
+ <hr>
 
-      <h2>Structure : Groupes, Champs &amp; Items</h2>
-      <p>SiteMaster repose sur trois concepts qui s'emboîtent naturellement :</p>
+ <h2>Structure : Groupes, Champs &amp; Items</h2>
+ <p>SiteMaster repose sur trois concepts qui s'emboîtent naturellement :</p>
 
-      <div class="not-prose space-y-3 my-6">
-        <div class="flex gap-4 p-4 bg-white border border-slate-200 rounded-lg">
-          <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0 text-emerald-700 font-bold">1</div>
-          <div>
-            <h3 class="font-semibold text-slate-800 mb-1">Groupe de champs</h3>
-            <p class="text-slate-500 text-sm">Votre "Collection" ou type de contenu. Ex : <strong>Services</strong>, <strong>Projets</strong>, <strong>Membres de l'équipe</strong>. Un groupe peut avoir autant de champs que vous le souhaitez.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 p-4 bg-white border border-slate-200 rounded-lg">
-          <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0 text-emerald-700 font-bold">2</div>
-          <div>
-            <h3 class="font-semibold text-slate-800 mb-1">Champs personnalisés</h3>
-            <p class="text-slate-500 text-sm">Les données spécifiques à capturer. Types supportés : <strong>Texte</strong>, <strong>Texte Long</strong>, <strong>Image</strong>, <strong>URL</strong>, <strong>Nombre</strong>, <strong>Date</strong>, <strong>Email</strong>.</p>
-          </div>
-        </div>
-        <div class="flex gap-4 p-4 bg-white border border-slate-200 rounded-lg">
-          <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0 text-emerald-700 font-bold">3</div>
-          <div>
-            <h3 class="font-semibold text-slate-800 mb-1">Items</h3>
-            <p class="text-slate-500 text-sm">Les enregistrements individuels. Chaque Item appartient à un Groupe. Ex : "Nettoyage de vitres" est un Item du groupe "Services".</p>
-          </div>
-        </div>
-      </div>
+ <div class="not-prose space-y-3 my-6">
+ <div class="flex gap-4 p-4 bg-slate-100 -slate-200 rounded-none">
+ <div class="w-10 h-10 bg-emerald-100 rounded-none flex items-center justify-center shrink-0 text-emerald-700 font-bold">1</div>
+ <div>
+ <h3 class="font-semibold text-slate-800 mb-1">Groupe de champs</h3>
+ <p class="text-slate-500 text-sm">Votre "Collection" ou type de contenu. Ex : <strong>Services</strong>, <strong>Projets</strong>, <strong>Membres de l'équipe</strong>. Un groupe peut avoir autant de champs que vous le souhaitez.</p>
+ </div>
+ </div>
+ <div class="flex gap-4 p-4 bg-slate-100 -slate-200 rounded-none">
+ <div class="w-10 h-10 bg-emerald-100 rounded-none flex items-center justify-center shrink-0 text-emerald-700 font-bold">2</div>
+ <div>
+ <h3 class="font-semibold text-slate-800 mb-1">Champs personnalisés</h3>
+ <p class="text-slate-500 text-sm">Les données spécifiques à capturer. Types supportés : <strong>Texte</strong>, <strong>Texte Long</strong>, <strong>Image</strong>, <strong>URL</strong>, <strong>Nombre</strong>, <strong>Date</strong>, <strong>Email</strong>.</p>
+ </div>
+ </div>
+ <div class="flex gap-4 p-4 bg-slate-100 -slate-200 rounded-none">
+ <div class="w-10 h-10 bg-emerald-100 rounded-none flex items-center justify-center shrink-0 text-emerald-700 font-bold">3</div>
+ <div>
+ <h3 class="font-semibold text-slate-800 mb-1">Items</h3>
+ <p class="text-slate-500 text-sm">Les enregistrements individuels. Chaque Item appartient à un Groupe. Ex : "Nettoyage de vitres" est un Item du groupe "Services".</p>
+ </div>
+ </div>
+ </div>
 
-      <hr>
+ <hr>
 
-      <h2>Modèles &amp; Routage Dynamique (URL Mapping)</h2>
-      <p>C'est la fonctionnalité centrale de SiteMaster. Elle permet de créer des architectures "Listing / Détail" sans configuration manuelle.</p>
+ <h2>Modèles &amp; Routage Dynamique (URL Mapping)</h2>
+ <p>C'est la fonctionnalité centrale de SiteMaster. Elle permet de créer des architectures "Listing / Détail" sans configuration manuelle.</p>
 
-      <h3>Étape 1 — Créer une Page Modèle</h3>
-      <p>Allez dans <strong>Pages Modèles</strong> et créez votre design dans l'éditeur Gutenberg standard. Intégrez vos blocs personnalisés pour afficher les données dynamiques via les helpers API.</p>
+ <h3>Étape 1 — Créer une Page Modèle</h3>
+ <p>Allez dans <strong>Pages Modèles</strong> et créez votre design dans l'éditeur Gutenberg standard. Intégrez vos blocs personnalisés pour afficher les données dynamiques via les helpers API.</p>
 
-      <h3>Étape 2 — Configurer le Routage</h3>
-      <p>Dans les réglages de votre <strong>Groupe de champs</strong>, renseignez :</p>
-      <ul>
-        <li><strong>Chemin de listing</strong> : Le préfixe de l'URL. Ex : <code>services</code>, <code>portfolio</code>.</li>
-        <li><strong>Page Modèle</strong> : Le modèle Gutenberg créé à l'étape 1.</li>
-      </ul>
+ <h3>Étape 2 — Configurer le Routage</h3>
+ <p>Dans les réglages de votre <strong>Groupe de champs</strong>, renseignez :</p>
+ <ul>
+ <li><strong>Chemin de listing</strong> : Le préfixe de l'URL. Ex : <code>services</code>, <code>portfolio</code>.</li>
+ <li><strong>Page Modèle</strong> : Le modèle Gutenberg créé à l'étape 1.</li>
+ </ul>
 
-      <h3>Étape 3 — Résultat automatique</h3>
-      <p>Toute URL correspondant au pattern <code>/{chemin}/{slug-item}</code> est interceptée :</p>
-      <pre><code class="language-bash">https://votre-site.com/portfolio/mon-projet-genial
-                         ↑          ↑
-                   chemin listing   slug de l'Item</code></pre>
+ <h3>Étape 3 — Résultat automatique</h3>
+ <p>Toute URL correspondant au pattern <code>/{chemin}/{slug-item}</code> est interceptée :</p>
+ <pre><code class="language-bash">https://votre-site.com/portfolio/mon-projet-genial
+ ↑ ↑
+ chemin listing slug de l'Item</code></pre>
 
-      <p>Voici ce qui se passe en coulisses :</p>
-      <ol>
-        <li>SiteMaster détecte l'URL et identifie l'Item <code>mon-projet-genial</code>.</li>
-        <li>Il force WordPress à afficher votre <strong>Page Modèle</strong> configurée.</li>
-        <li>Vos blocs PHP récupèrent les données de cet Item via les helpers API.</li>
-        <li>Le visiteur voit la page du projet — sans aucun code de routing manuel.</li>
-      </ol>
+ <p>Voici ce qui se passe en coulisses :</p>
+ <ol>
+ <li>SiteMaster détecte l'URL et identifie l'Item <code>mon-projet-genial</code>.</li>
+ <li>Il force WordPress à afficher votre <strong>Page Modèle</strong> configurée.</li>
+ <li>Vos blocs PHP récupèrent les données de cet Item via les helpers API.</li>
+ <li>Le visiteur voit la page du projet — sans aucun code de routing manuel.</li>
+ </ol>
 
-      <hr>
+ <hr>
 
-      <h2>Layouts de Template</h2>
-      <p>Lors de la création d’une Page Modèle, vous choisissez le <strong>layout de rendu</strong>. Ce choix détermine comment le template s’insère dans votre thème WordPress.</p>
+ <h2>Layouts de Template</h2>
+ <p>Lors de la création d’une Page Modèle, vous choisissez le <strong>layout de rendu</strong>. Ce choix détermine comment le template s’insère dans votre thème WordPress.</p>
 
-      <div class="not-prose grid grid-cols-2 gap-4 my-6">
-        <div class="p-5 bg-white border border-emerald-300 rounded-xl">
-          <p class="text-emerald-700 font-bold text-sm mb-2">🎨 Layout : Theme</p>
-          <p class="text-slate-600 text-sm">Le template est rendu <strong>dans votre thème</strong> WordPress. Le header, footer et sidebar du thème sont présents. Idéal pour les pages de détail qui doivent conserver la navigation globale.</p>
-        </div>
-        <div class="p-5 bg-white border border-indigo-300 rounded-xl">
-          <p class="text-indigo-700 font-bold text-sm mb-2">⬜ Layout : Blank</p>
-          <p class="text-slate-600 text-sm">Le template est rendu dans une <strong>page vierge</strong> (HTML complet sans thème). Idéal pour des landing pages, pages de détail full-screen, ou des interfaces sans barre de navigation.</p>
-        </div>
-      </div>
+ <div class="not-prose grid grid-cols-2 gap-4 my-6">
+ <div class="p-5 bg-slate-100 -emerald-300 rounded-none">
+ <p class="text-emerald-700 font-bold text-sm mb-2">🎨 Layout : Theme</p>
+ <p class="text-slate-600 text-sm">Le template est rendu <strong>dans votre thème</strong> WordPress. Le header, footer et sidebar du thème sont présents. Idéal pour les pages de détail qui doivent conserver la navigation globale.</p>
+ </div>
+ <div class="p-5 bg-slate-100 -indigo-300 rounded-none">
+ <p class="text-indigo-700 font-bold text-sm mb-2">⬜ Layout : Blank</p>
+ <p class="text-slate-600 text-sm">Le template est rendu dans une <strong>page vierge</strong> (HTML complet sans thème). Idéal pour des landing pages, pages de détail full-screen, ou des interfaces sans barre de navigation.</p>
+ </div>
+ </div>
 
-      <div class="not-prose flex gap-3 p-4 rounded-lg bg-indigo-50 border-l-4 border-indigo-500 my-6">
-        <span class="text-indigo-600 font-semibold text-sm shrink-0">💡 TIP</span>
-        <p class="text-slate-700 text-sm m-0">Le layout <strong>Blank</strong> charge tout de même <code>wp_head()</code> et <code>wp_footer()</code>, donc vos scripts et styles WordPress (Tailwind, Lucide) sont disponibles. Il désactive uniquement le thème.</p>
-      </div>
+ <div class="not-prose flex gap-3 p-4 rounded-none bg-slate-100 -l-4 -indigo-500 my-6">
+ <span class="text-indigo-600 font-semibold text-sm shrink-0">💡 TIP</span>
+ <p class="text-slate-700 text-sm m-0">Le layout <strong>Blank</strong> charge tout de même <code>wp_head()</code> et <code>wp_footer()</code>, donc vos scripts et styles WordPress (Tailwind, Lucide) sont disponibles. Il désactive uniquement le thème.</p>
+ </div>
 
 
-      <h2>Gestion des Médias (Images)</h2>
-      <p>SiteMaster est totalement intégré à la <strong>Bibliothèque de Médias WordPress</strong>.</p>
-      <ul>
-        <li>Les champs de type "Image" utilisent le sélecteur natif WordPress — vos utilisateurs ont une expérience familière.</li>
-        <li>Côté code, SiteMaster retourne l'URL directe du média. Pas de tableaux complexes à déstructurer.</li>
-      </ul>
-      <pre><code class="language-php">&lt;?php $photo = sm_get_current_value('photo_couverture'); ?&gt;
+ <h2>Gestion des Médias (Images)</h2>
+ <p>SiteMaster est totalement intégré à la <strong>Bibliothèque de Médias WordPress</strong>.</p>
+ <ul>
+ <li>Les champs de type "Image" utilisent le sélecteur natif WordPress — vos utilisateurs ont une expérience familière.</li>
+ <li>Côté code, SiteMaster retourne l'URL directe du média. Pas de tableaux complexes à déstructurer.</li>
+ </ul>
+ <pre><code class="language-php">&lt;?php $photo = sm_get_current_value('photo_couverture'); ?&gt;
 
 &lt;?php if ($photo): ?&gt;
-    &lt;img src="&lt;?= esc_url($photo) ?&gt;"
-         alt="&lt;?= esc_attr(sm_get_current_term_name()) ?&gt;"
-         class="tw-w-full tw-rounded-2xl tw-object-cover"&gt;
+ &lt;img src="&lt;?= esc_url($photo) ?&gt;"
+ alt="&lt;?= esc_attr(sm_get_current_term_name()) ?&gt;"
+ class="tw-w-full tw-rounded-none tw-object-cover"&gt;
 &lt;?php else: ?&gt;
-    &lt;div class="tw-bg-slate-200 tw-rounded-2xl tw-h-48"&gt;&lt;/div&gt;
+ &lt;div class="tw-bg-slate-200 tw-rounded-none tw-h-48"&gt;&lt;/div&gt;
 &lt;?php endif; ?&gt;</code></pre>
 
-      <hr>
+ <hr>
 
-      <h2>SEO &amp; Performances</h2>
-      <p>Puisque SiteMaster utilise de vraies Pages WordPress comme modèles :</p>
-      <ul>
-        <li>La gestion du SEO (titres, méta-descriptions) reste standard — Yoast, RankMath, etc. fonctionnent nativement.</li>
-        <li>Les systèmes de cache (WP Rocket, Cloudflare) fonctionnent sans configuration.</li>
-        <li>Le contenu est indexable par les moteurs de recherche comme tout contenu WordPress natif.</li>
-      </ul>
+ <h2>SEO &amp; Performances</h2>
+ <p>Puisque SiteMaster utilise de vraies Pages WordPress comme modèles :</p>
+ <ul>
+ <li>La gestion du SEO (titres, méta-descriptions) reste standard — Yoast, RankMath, etc. fonctionnent nativement.</li>
+ <li>Les systèmes de cache (WP Rocket, Cloudflare) fonctionnent sans configuration.</li>
+ <li>Le contenu est indexable par les moteurs de recherche comme tout contenu WordPress natif.</li>
+ </ul>
 
-      <div class="not-prose flex gap-3 p-4 rounded-lg bg-red-50 border-l-4 border-red-500 my-6">
-        <span class="text-red-600 font-semibold text-sm shrink-0">🔴 IMPORTANT</span>
-        <p class="text-slate-700 text-sm m-0">SiteMaster masque les Items de l'interface standard de WordPress (<code>show_in_menu = false</code>) pour garder votre admin propre. Tout se gère depuis l'onglet <strong>Items</strong> dans votre Groupe de champs.</p>
-      </div>
+ <div class="not-prose flex gap-3 p-4 rounded-none bg-slate-100 -l-4 -red-500 my-6">
+ <span class="text-red-600 font-semibold text-sm shrink-0">🔴 IMPORTANT</span>
+ <p class="text-slate-700 text-sm m-0">SiteMaster masque les Items de l'interface standard de WordPress (<code>show_in_menu = false</code>) pour garder votre admin propre. Tout se gère depuis l'onglet <strong>Items</strong> dans votre Groupe de champs.</p>
+ </div>
 
-    </article>
-  </main>
+ </article>
+ </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
 </body>
 </html>

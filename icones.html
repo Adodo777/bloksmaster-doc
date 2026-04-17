@@ -1,154 +1,154 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Icônes Lucide — Blocks Master Documentation</title>
-  <meta name="description" content="Guide d'utilisation des icônes Lucide dans Blocks Master. Syntaxe, combinaison avec Tailwind CSS et catalogue des icônes disponibles.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  <style>
-    .prose pre { margin: 0; background: transparent; padding: 0; }
-    .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #4338ca; }
-    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Icônes Lucide — Blocks Master Documentation</title>
+ <meta name="description" content="Guide d'utilisation des icônes Lucide dans Blocks Master. Syntaxe, combinaison avec Tailwind CSS et catalogue des icônes disponibles.">
+ <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+ <style>
+ .prose pre { margin: 0; background: transparent; padding: 0; }
+ .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; -radius: 4px; font-size: 0.85em; color: #4338ca; }
+ ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; -radius: 3px; }
+ </style>
 </head>
 <body class="bg-slate-50 font-sans">
 
-  <!-- SIDEBAR -->
-  <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 overflow-y-auto z-20 flex flex-col">
-    <div class="px-6 py-6 border-b border-slate-700">
-      <div class="flex items-center gap-2 mb-1">
-        <div class="w-7 h-7 bg-indigo-600 rounded-md flex items-center justify-center">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        </div>
-        <span class="text-white font-bold text-sm">Blocks Master</span>
-      </div>
-      <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
-    </div>
-    <nav class="flex-1 px-4 py-6 space-y-1">
-      <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
-      <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        Accueil
-      </a>
-      <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Le Lab
-      </a>
-      <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
-        SiteMaster
-      </a>
-      <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        Formulaires Headless
-      </a>
-      <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        Icônes Lucide
-      </a>
-      <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        Référence API
-      </a>
-    </nav>
-    <div class="px-4 py-4 border-t border-slate-700">
-      <p class="text-slate-500 text-xs">Développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
-    </div>
-  </aside>
+ <!-- SIDEBAR -->
+ <aside class="lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-64 bg-slate-900 lg:overflow-y-auto z-20 flex flex-col relative w-full h-auto">
+ <div class="px-6 py-6 -b -slate-700">
+ <div class="flex items-center gap-2 mb-1">
+ <div class="w-7 h-7 bg-indigo-600 rounded-none flex items-center justify-center">
+ <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+ </div>
+ <span class="text-white font-bold text-sm">Blocks Master</span>
+ </div>
+ <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
+ </div>
+ <nav class="flex-1 px-4 py-6 space-y-1">
+ <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
+ <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+ Accueil
+ </a>
+ <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+ Le Lab
+ </a>
+ <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+ SiteMaster
+ </a>
+ <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+ Formulaires Headless
+ </a>
+ <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium bg-indigo-600 text-white">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ Icônes Lucide
+ </a>
+ <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+ Référence API
+ </a>
+ </nav>
+ <div class="px-4 py-4 -t -slate-700">
+ <p class="text-slate-500 text-xs">Développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
+ </div>
+ </aside>
 
-  <!-- MAIN CONTENT -->
-  <main class="ml-64 min-h-screen">
-    <article class="max-w-4xl mx-auto px-8 py-12 prose prose-slate prose-indigo prose-pre:rounded-xl prose-pre:bg-slate-800 prose-pre:shadow-lg max-w-none">
+ <!-- MAIN CONTENT -->
+ <main class="lg:ml-64 min-h-screen pt-4 lg:pt-0">
+ <article class="max-w-4xl mx-auto px-8 py-12 prose prose-slate prose-indigo prose-pre:rounded-none prose-pre:bg-slate-800 prose-pre: max-w-none">
 
-      <div class="not-prose mb-2">
-        <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Bonus</span>
-      </div>
-      <h1>Icônes Lucide</h1>
-      <p class="lead">Blocks Master embarque en local la bibliothèque <strong>Lucide Icons</strong> (v1.8.0+). Plus de 1400 icônes vectorielles propres et cohérentes, disponibles dans tous vos blocs sans aucune configuration.</p>
+ <div class="not-prose mb-2">
+ <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Bonus</span>
+ </div>
+ <h1>Icônes Lucide</h1>
+ <p class="lead">Blocks Master embarque en local la bibliothèque <strong>Lucide Icons</strong> (v1.8.0+). Plus de 1400 icônes vectorielles propres et cohérentes, disponibles dans tous vos blocs sans aucune configuration.</p>
 
-      <hr>
+ <hr>
 
-      <h2>Syntaxe de base</h2>
-      <p>Pour afficher une icône, utilisez la balise <code>&lt;i&gt;</code> avec l'attribut <code>data-lucide</code> :</p>
-      <pre><code class="language-html">&lt;i data-lucide="nom-de-licone"&gt;&lt;/i&gt;</code></pre>
-      <p>Le script Lucide inclus dans le plugin scanne la page et remplace automatiquement ces balises par des SVG vectoriels optimisés.</p>
+ <h2>Syntaxe de base</h2>
+ <p>Pour afficher une icône, utilisez la balise <code>&lt;i&gt;</code> avec l'attribut <code>data-lucide</code> :</p>
+ <pre><code class="language-html">&lt;i data-lucide="nom-de-licone"&gt;&lt;/i&gt;</code></pre>
+ <p>Le script Lucide inclus dans le plugin scanne la page et remplace automatiquement ces balises par des SVG vectoriels optimisés.</p>
 
-      <hr>
+ <hr>
 
-      <h2>Combiner Lucide et Tailwind CSS</h2>
-      <p>Puisque Lucide génère du SVG, vous pouvez utiliser les classes Tailwind pour contrôler la taille (<code>tw-w-X tw-h-X</code>) et la couleur (<code>tw-text-*</code>) :</p>
-      <pre><code class="language-html">&lt;!-- Icône small, couleur indigo --&gt;
+ <h2>Combiner Lucide et Tailwind CSS</h2>
+ <p>Puisque Lucide génère du SVG, vous pouvez utiliser les classes Tailwind pour contrôler la taille (<code>tw-w-X tw-h-X</code>) et la couleur (<code>tw-text-*</code>) :</p>
+ <pre><code class="language-html">&lt;!-- Icône small, couleur indigo --&gt;
 &lt;i data-lucide="arrow-right" class="tw-w-4 tw-h-4 tw-text-indigo-600"&gt;&lt;/i&gt;
 
 &lt;!-- Icône large, couleur personnalisée --&gt;
 &lt;i data-lucide="sparkles" class="tw-w-10 tw-h-10 tw-text-violet-500"&gt;&lt;/i&gt;</code></pre>
 
-      <h3>Exemple : Carte Feature avec icône</h3>
-      <pre><code class="language-html">&lt;div class="tw-flex tw-items-start tw-gap-4 tw-p-6 tw-bg-white tw-rounded-2xl tw-shadow-sm"&gt;
+ <h3>Exemple : Carte Feature avec icône</h3>
+ <pre><code class="language-html">&lt;div class="tw-flex tw-items-start tw-gap-4 tw-p-6 tw-bg-slate-100 tw-rounded-none tw-shadow-sm"&gt;
 
-    &lt;div class="tw-flex-shrink-0 tw-w-12 tw-h-12 tw-bg-indigo-100 tw-rounded-xl
-                tw-flex tw-items-center tw-justify-center"&gt;
-        &lt;i data-lucide="shield-check" class="tw-w-6 tw-h-6 tw-text-indigo-600"&gt;&lt;/i&gt;
-    &lt;/div&gt;
+ &lt;div class="tw-flex-shrink-0 tw-w-12 tw-h-12 tw-bg-indigo-100 tw-rounded-none
+ tw-flex tw-items-center tw-justify-center"&gt;
+ &lt;i data-lucide="shield-check" class="tw-w-6 tw-h-6 tw-text-indigo-600"&gt;&lt;/i&gt;
+ &lt;/div&gt;
 
-    &lt;div&gt;
-        &lt;h3 class="tw-font-semibold tw-text-slate-900"&gt;Sécurité maximale&lt;/h3&gt;
-        &lt;p class="tw-text-slate-500 tw-text-sm tw-mt-1"&gt;
-            Protégé par nonces WordPress sur chaque action.
-        &lt;/p&gt;
-    &lt;/div&gt;
+ &lt;div&gt;
+ &lt;h3 class="tw-font-semibold tw-text-slate-900"&gt;Sécurité maximale&lt;/h3&gt;
+ &lt;p class="tw-text-slate-500 tw-text-sm tw-mt-1"&gt;
+ Protégé par nonces WordPress sur chaque action.
+ &lt;/p&gt;
+ &lt;/div&gt;
 
 &lt;/div&gt;</code></pre>
 
-      <hr>
+ <hr>
 
-      <h2>Catalogue des icônes</h2>
-      <p>Pour trouver le nom d'une icône, consultez le catalogue officiel en ligne. Copiez simplement le petit nom en minuscules affiché sous l'icône (ex: <code>arrow-right</code>, <code>user-circle</code>, <code>mail</code>).</p>
+ <h2>Catalogue des icônes</h2>
+ <p>Pour trouver le nom d'une icône, consultez le catalogue officiel en ligne. Copiez simplement le petit nom en minuscules affiché sous l'icône (ex: <code>arrow-right</code>, <code>user-circle</code>, <code>mail</code>).</p>
 
-      <div class="not-prose">
-        <a href="https://lucide.dev/icons" target="_blank" rel="noopener noreferrer"
-           class="inline-flex items-center gap-2 px-5 py-3 bg-slate-900 text-white text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors">
-          Voir le catalogue Lucide
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-        </a>
-      </div>
+ <div class="not-prose">
+ <a href="https://lucide.dev/icons" target="_blank" rel="noopener noreferrer"
+ class="inline-flex items-center gap-2 px-5 py-3 bg-slate-900 text-white text-sm font-medium rounded-none hover:bg-slate-700 transition-colors">
+ Voir le catalogue Lucide
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+ </a>
+ </div>
 
-      <hr>
+ <hr>
 
-      <h2>Icônes populaires — Référence rapide</h2>
+ <h2>Icônes populaires — Référence rapide</h2>
 
-      <div class="not-prose grid grid-cols-2 md:grid-cols-3 gap-3 my-6" id="lucide-preview">
-        <!-- Rendu en live via le script Lucide -->
-      </div>
+ <div class="not-prose grid grid-cols-2 md:grid-cols-3 gap-3 my-6" id="lucide-preview">
+ <!-- Rendu en live via le script Lucide -->
+ </div>
 
-      <div class="not-prose bg-white border border-slate-200 rounded-xl overflow-hidden">
-        <table class="w-full text-sm">
-          <thead class="bg-slate-50 border-b border-slate-200">
-            <tr>
-              <th class="text-left px-5 py-3 font-semibold text-slate-700">Nom</th>
-              <th class="text-left px-5 py-3 font-semibold text-slate-700">Usage typique</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100">
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">mail</code></td><td class="px-5 py-2.5 text-slate-500">Contact, Email</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">phone</code></td><td class="px-5 py-2.5 text-slate-500">Téléphone, Contact</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">map-pin</code></td><td class="px-5 py-2.5 text-slate-500">Adresse, Localisation</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">arrow-right</code></td><td class="px-5 py-2.5 text-slate-500">CTA, Navigation</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">check-circle</code></td><td class="px-5 py-2.5 text-slate-500">Succès, Validation</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">shield-check</code></td><td class="px-5 py-2.5 text-slate-500">Sécurité, Garantie</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">star</code></td><td class="px-5 py-2.5 text-slate-500">Rating, Favoris</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">user</code></td><td class="px-5 py-2.5 text-slate-500">Profil, Compte</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">calendar</code></td><td class="px-5 py-2.5 text-slate-500">Date, Planning</td></tr>
-            <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">clock</code></td><td class="px-5 py-2.5 text-slate-500">Horaires, Délai</td></tr>
-          </tbody>
-        </table>
-      </div>
+ <div class="not-prose bg-slate-100 -slate-200 rounded-none overflow-hidden">
+ <table class="w-full text-sm">
+ <thead class="bg-slate-50 -b -slate-200">
+ <tr>
+ <th class="text-left px-5 py-3 font-semibold text-slate-700">Nom</th>
+ <th class="text-left px-5 py-3 font-semibold text-slate-700">Usage typique</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-100">
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">mail</code></td><td class="px-5 py-2.5 text-slate-500">Contact, Email</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">phone</code></td><td class="px-5 py-2.5 text-slate-500">Téléphone, Contact</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">map-pin</code></td><td class="px-5 py-2.5 text-slate-500">Adresse, Localisation</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">arrow-right</code></td><td class="px-5 py-2.5 text-slate-500">CTA, Navigation</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">check-circle</code></td><td class="px-5 py-2.5 text-slate-500">Succès, Validation</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">shield-check</code></td><td class="px-5 py-2.5 text-slate-500">Sécurité, Garantie</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">star</code></td><td class="px-5 py-2.5 text-slate-500">Rating, Favoris</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">user</code></td><td class="px-5 py-2.5 text-slate-500">Profil, Compte</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">calendar</code></td><td class="px-5 py-2.5 text-slate-500">Date, Planning</td></tr>
+ <tr><td class="px-5 py-2.5"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">clock</code></td><td class="px-5 py-2.5 text-slate-500">Horaires, Délai</td></tr>
+ </tbody>
+ </table>
+ </div>
 
-    </article>
-  </main>
+ </article>
+ </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
 </body>
 </html>

@@ -1,196 +1,196 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil — Documentation Blocks Master / SiteMaster</title>
-  <meta name="description" content="Documentation officielle de la suite Blocks Master et SiteMaster. Plugin WordPress PHP-First pour créer des blocs Gutenberg, gérer des données et des formulaires headless.">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config = { theme: { extend: {} } }</script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-  <style>
-    .prose pre { margin: 0; background: transparent; padding: 0; }
-    .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #4338ca; }
-    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
-  </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Accueil — Documentation Blocks Master / SiteMaster</title>
+ <meta name="description" content="Documentation officielle de la suite Blocks Master et SiteMaster. Plugin WordPress PHP-First pour créer des blocs Gutenberg, gérer des données et des formulaires headless.">
+ <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+ <script>tailwind.config = { theme: { extend: {} } }</script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+ <style>
+ .prose pre { margin: 0; background: transparent; padding: 0; }
+ .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; -radius: 4px; font-size: 0.85em; color: #4338ca; }
+ ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; -radius: 3px; }
+ </style>
 </head>
 <body class="bg-slate-50 font-sans">
 
-  <!-- SIDEBAR -->
-  <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 overflow-y-auto z-20 flex flex-col">
-    <div class="px-6 py-6 border-b border-slate-700">
-      <div class="flex items-center gap-2 mb-1">
-        <div class="w-7 h-7 bg-indigo-600 rounded-md flex items-center justify-center">
-          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        </div>
-        <span class="text-white font-bold text-sm">Blocks Master</span>
-      </div>
-      <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
-    </div>
+ <!-- SIDEBAR -->
+ <aside class="lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-64 bg-slate-900 lg:overflow-y-auto z-20 flex flex-col relative w-full h-auto">
+ <div class="px-6 py-6 -b -slate-700">
+ <div class="flex items-center gap-2 mb-1">
+ <div class="w-7 h-7 bg-indigo-600 rounded-none flex items-center justify-center">
+ <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+ </div>
+ <span class="text-white font-bold text-sm">Blocks Master</span>
+ </div>
+ <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
+ </div>
 
-    <nav class="flex-1 px-4 py-6 space-y-1">
-      <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
-      <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        Accueil
-      </a>
-      <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-        Le Lab
-      </a>
-      <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
-        SiteMaster
-      </a>
-      <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        Formulaires Headless
-      </a>
-      <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        Icônes Lucide
-      </a>
-      <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        Référence API
-      </a>
-    </nav>
+ <nav class="flex-1 px-4 py-6 space-y-1">
+ <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
+ <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium bg-indigo-600 text-white">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+ Accueil
+ </a>
+ <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+ Le Lab
+ </a>
+ <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+ SiteMaster
+ </a>
+ <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+ Formulaires Headless
+ </a>
+ <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+ Icônes Lucide
+ </a>
+ <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-none text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+ <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+ Référence API
+ </a>
+ </nav>
 
-    <div class="px-4 py-4 border-t border-slate-700">
-      <p class="text-slate-500 text-xs">Plugin développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
-    </div>
-  </aside>
+ <div class="px-4 py-4 -t -slate-700">
+ <p class="text-slate-500 text-xs">Plugin développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
+ </div>
+ </aside>
 
-  <!-- MAIN CONTENT -->
-  <main class="ml-64 min-h-screen">
-    <article class="max-w-4xl mx-auto px-8 py-12">
+ <!-- MAIN CONTENT -->
+ <main class="lg:ml-64 min-h-screen pt-4 lg:pt-0">
+ <article class="max-w-4xl mx-auto px-8 py-12">
 
-      <!-- Hero -->
-      <div class="mb-12">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-full mb-4">
-          <span class="w-1.5 h-1.5 bg-indigo-600 rounded-full"></span>
-          Version 3.0
-        </div>
-        <h1 class="text-4xl font-bold text-slate-900 mb-4">Blocks Master / SiteMaster</h1>
-        <p class="text-xl text-slate-600 leading-relaxed max-w-2xl">
-          La suite WordPress pour développeurs qui veulent créer des sites sur-mesure, rapides et maintenables — sans lourdeur, sans builders, sans compromis.
-        </p>
-      </div>
+ <!-- Hero -->
+ <div class="mb-12">
+ <div class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-semibold rounded-full mb-4">
+ <span class="w-1.5 h-1.5 bg-indigo-600 rounded-full"></span>
+ Version 3.0
+ </div>
+ <h1 class="text-4xl font-bold text-slate-900 mb-4">Blocks Master / SiteMaster</h1>
+ <p class="text-xl text-slate-600 leading-relaxed max-w-2xl">
+ La suite WordPress pour développeurs qui veulent créer des sites sur-mesure, rapides et maintenables — sans lourdeur, sans builders, sans compromis.
+ </p>
+ </div>
 
-      <!-- Module Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
-        <a href="lab.html" class="group block p-6 bg-white border border-slate-200 rounded-xl hover:border-indigo-300 hover:shadow-md transition-all">
-          <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
-            <svg class="w-5 h-5 text-indigo-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          </div>
-          <h2 class="text-slate-900 font-semibold mb-2">Le Lab</h2>
-          <p class="text-slate-500 text-sm leading-relaxed">Créez des blocs Gutenberg en PHP pur avec Tailwind CSS. Versioning intégré, attributs éditables et IDE dans le navigateur.</p>
-        </a>
+ <!-- Module Cards -->
+ <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12">
+ <a href="lab.html" class="group block p-6 bg-slate-100 -slate-200 rounded-none hover:-indigo-300 transition-all">
+ <div class="w-10 h-10 bg-indigo-100 rounded-none flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors">
+ <svg class="w-5 h-5 text-indigo-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+ </div>
+ <h2 class="text-slate-900 font-semibold mb-2">Le Lab</h2>
+ <p class="text-slate-500 text-sm leading-relaxed">Créez des blocs Gutenberg en PHP pur avec Tailwind CSS. Versioning intégré, attributs éditables et IDE dans le navigateur.</p>
+ </a>
 
-        <a href="sitemaster.html" class="group block p-6 bg-white border border-slate-200 rounded-xl hover:border-indigo-300 hover:shadow-md transition-all">
-          <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-emerald-600 transition-colors">
-            <svg class="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
-          </div>
-          <h2 class="text-slate-900 font-semibold mb-2">SiteMaster</h2>
-          <p class="text-slate-500 text-sm leading-relaxed">Gérez des structures de données complexes et liez-les à des pages modèles dynamiques avec routage automatique par URL.</p>
-        </a>
+ <a href="sitemaster.html" class="group block p-6 bg-slate-100 -slate-200 rounded-none hover:-indigo-300 transition-all">
+ <div class="w-10 h-10 bg-emerald-100 rounded-none flex items-center justify-center mb-4 group-hover:bg-emerald-600 transition-colors">
+ <svg class="w-5 h-5 text-emerald-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+ </div>
+ <h2 class="text-slate-900 font-semibold mb-2">SiteMaster</h2>
+ <p class="text-slate-500 text-sm leading-relaxed">Gérez des structures de données complexes et liez-les à des pages modèles dynamiques avec routage automatique par URL.</p>
+ </a>
 
-        <a href="forms.html" class="group block p-6 bg-white border border-slate-200 rounded-xl hover:border-indigo-300 hover:shadow-md transition-all">
-          <div class="w-10 h-10 bg-violet-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors">
-            <svg class="w-5 h-5 text-violet-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-          </div>
-          <h2 class="text-slate-900 font-semibold mb-2">Formulaires Headless</h2>
-          <p class="text-slate-500 text-sm leading-relaxed">Moteur de formulaires complet — validation, stockage DB, emails — avec liberté totale sur le markup HTML de votre côté.</p>
-        </a>
+ <a href="forms.html" class="group block p-6 bg-slate-100 -slate-200 rounded-none hover:-indigo-300 transition-all">
+ <div class="w-10 h-10 bg-violet-100 rounded-none flex items-center justify-center mb-4 group-hover:bg-violet-600 transition-colors">
+ <svg class="w-5 h-5 text-violet-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+ </div>
+ <h2 class="text-slate-900 font-semibold mb-2">Formulaires Headless</h2>
+ <p class="text-slate-500 text-sm leading-relaxed">Moteur de formulaires complet — validation, stockage DB, emails — avec liberté totale sur le markup HTML de votre côté.</p>
+ </a>
 
-        <a href="api.html" class="group block p-6 bg-white border border-slate-200 rounded-xl hover:border-indigo-300 hover:shadow-md transition-all">
-          <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mb-4 group-hover:bg-orange-600 transition-colors">
-            <svg class="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 11-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
-          </div>
-          <h2 class="text-slate-900 font-semibold mb-2">Support Elementor</h2>
-          <p class="text-slate-500 text-sm leading-relaxed">Chaque bloc créé dans le Lab est automatiquement disponible comme widget Elementor dans la catégorie "SiteMaster", avec ses attributs.</p>
-        </a>
-      </div>
+ <a href="api.html" class="group block p-6 bg-slate-100 -slate-200 rounded-none hover:-indigo-300 transition-all">
+ <div class="w-10 h-10 bg-orange-100 rounded-none flex items-center justify-center mb-4 group-hover:bg-orange-600 transition-colors">
+ <svg class="w-5 h-5 text-orange-600 group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 11-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/></svg>
+ </div>
+ <h2 class="text-slate-900 font-semibold mb-2">Support Elementor</h2>
+ <p class="text-slate-500 text-sm leading-relaxed">Chaque bloc créé dans le Lab est automatiquement disponible comme widget Elementor dans la catégorie "SiteMaster", avec ses attributs.</p>
+ </a>
+ </div>
 
-      <!-- Philosophy -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">La philosophie</h2>
-        <div class="space-y-4">
-          <div class="flex gap-4 p-4 bg-white border border-slate-200 rounded-lg">
-            <div class="text-2xl">⚡</div>
-            <div>
-              <h3 class="font-semibold text-slate-800 mb-1">PHP-First</h3>
-              <p class="text-slate-500 text-sm">Vous écrivez du PHP et du HTML. Le plugin s'occupe de l'enregistrement Gutenberg. Pas de build, pas de Node, pas de React.</p>
-            </div>
-          </div>
-          <div class="flex gap-4 p-4 bg-white border border-slate-200 rounded-lg">
-            <div class="text-2xl">🚀</div>
-            <div>
-              <h3 class="font-semibold text-slate-800 mb-1">Performance Native</h3>
-              <p class="text-slate-500 text-sm">Architecture hybride : CPT WordPress pour le contenu, tables SQL optimisées pour la logique système, fichiers physiques pour le rendu rapide.</p>
-            </div>
-          </div>
-          <div class="flex gap-4 p-4 bg-white border border-slate-200 rounded-lg">
-            <div class="text-2xl">🛠️</div>
-            <div>
-              <h3 class="font-semibold text-slate-800 mb-1">Developer Experience (DX)</h3>
-              <p class="text-slate-500 text-sm">IDE intégré, Tailwind CSS embarqué, API PHP granulaire — tout est conçu pour que vous soyez productif en moins de 5 minutes.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+ <!-- Philosophy -->
+ <section class="mb-10">
+ <h2 class="text-2xl font-bold text-slate-900 mb-4">La philosophie</h2>
+ <div class="space-y-4">
+ <div class="flex gap-4 p-4 bg-slate-100 -slate-200 rounded-none">
+ <div class="text-2xl">⚡</div>
+ <div>
+ <h3 class="font-semibold text-slate-800 mb-1">PHP-First</h3>
+ <p class="text-slate-500 text-sm">Vous écrivez du PHP et du HTML. Le plugin s'occupe de l'enregistrement Gutenberg. Pas de build, pas de Node, pas de React.</p>
+ </div>
+ </div>
+ <div class="flex gap-4 p-4 bg-slate-100 -slate-200 rounded-none">
+ <div class="text-2xl">🚀</div>
+ <div>
+ <h3 class="font-semibold text-slate-800 mb-1">Performance Native</h3>
+ <p class="text-slate-500 text-sm">Architecture hybride : CPT WordPress pour le contenu, tables SQL optimisées pour la logique système, fichiers physiques pour le rendu rapide.</p>
+ </div>
+ </div>
+ <div class="flex gap-4 p-4 bg-slate-100 -slate-200 rounded-none">
+ <div class="text-2xl">🛠️</div>
+ <div>
+ <h3 class="font-semibold text-slate-800 mb-1">Developer Experience (DX)</h3>
+ <p class="text-slate-500 text-sm">IDE intégré, Tailwind CSS embarqué, API PHP granulaire — tout est conçu pour que vous soyez productif en moins de 5 minutes.</p>
+ </div>
+ </div>
+ </div>
+ </section>
 
-      <!-- Architecture -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Architecture v3.0</h2>
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
-          <table class="w-full text-sm">
-            <thead class="bg-slate-50 border-b border-slate-200">
-              <tr>
-                <th class="text-left px-5 py-3 font-semibold text-slate-700">Données</th>
-                <th class="text-left px-5 py-3 font-semibold text-slate-700">Stockage</th>
-                <th class="text-left px-5 py-3 font-semibold text-slate-700">Raison</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100">
-              <tr>
-                <td class="px-5 py-3 text-slate-700 font-medium">Blocs (code)</td>
-                <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_blocks_master</code></td>
-                <td class="px-5 py-3 text-slate-500">Versioning, accès rapide, historique</td>
-              </tr>
-              <tr>
-                <td class="px-5 py-3 text-slate-700 font-medium">Formulaires</td>
-                <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_sm_forms</code></td>
-                <td class="px-5 py-3 text-slate-500">Tables optimisées, requêtes ultra-rapides</td>
-              </tr>
-              <tr>
-                <td class="px-5 py-3 text-slate-700 font-medium">Soumissions</td>
-                <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_sm_form_entries</code></td>
-                <td class="px-5 py-3 text-slate-500">JSON par entrée, indexé par form_id</td>
-              </tr>
-              <tr>
-                <td class="px-5 py-3 text-slate-700 font-medium">Items (contenu)</td>
-                <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_posts</code></td>
-                <td class="px-5 py-3 text-slate-500">CPT natif — compatible SEO, cache, plugins</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+ <!-- Architecture -->
+ <section class="mb-10">
+ <h2 class="text-2xl font-bold text-slate-900 mb-4">Architecture v3.0</h2>
+ <div class="bg-slate-100 -slate-200 rounded-none overflow-hidden">
+ <table class="w-full text-sm">
+ <thead class="bg-slate-50 -b -slate-200">
+ <tr>
+ <th class="text-left px-5 py-3 font-semibold text-slate-700">Données</th>
+ <th class="text-left px-5 py-3 font-semibold text-slate-700">Stockage</th>
+ <th class="text-left px-5 py-3 font-semibold text-slate-700">Raison</th>
+ </tr>
+ </thead>
+ <tbody class="divide-y divide-slate-100">
+ <tr>
+ <td class="px-5 py-3 text-slate-700 font-medium">Blocs (code)</td>
+ <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_blocks_master</code></td>
+ <td class="px-5 py-3 text-slate-500">Versioning, accès rapide, historique</td>
+ </tr>
+ <tr>
+ <td class="px-5 py-3 text-slate-700 font-medium">Formulaires</td>
+ <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_sm_forms</code></td>
+ <td class="px-5 py-3 text-slate-500">Tables optimisées, requêtes ultra-rapides</td>
+ </tr>
+ <tr>
+ <td class="px-5 py-3 text-slate-700 font-medium">Soumissions</td>
+ <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_sm_form_entries</code></td>
+ <td class="px-5 py-3 text-slate-500">JSON par entrée, indexé par form_id</td>
+ </tr>
+ <tr>
+ <td class="px-5 py-3 text-slate-700 font-medium">Items (contenu)</td>
+ <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_posts</code></td>
+ <td class="px-5 py-3 text-slate-500">CPT natif — compatible SEO, cache, plugins</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+ </section>
 
-      <!-- Requirements -->
-      <section class="mb-10">
-        <h2 class="text-2xl font-bold text-slate-900 mb-4">Pré-requis</h2>
-        <ul class="space-y-2">
-          <li class="flex items-center gap-3 text-slate-700"><span class="text-emerald-500 font-bold">✓</span> WordPress 6.0+</li>
-          <li class="flex items-center gap-3 text-slate-700"><span class="text-emerald-500 font-bold">✓</span> PHP 7.4+ (8.1+ recommandé)</li>
-          <li class="flex items-center gap-3 text-slate-700"><span class="text-emerald-500 font-bold">✓</span> Éditeur Gutenberg actif</li>
-          <li class="flex items-center gap-3 text-slate-700"><span class="text-emerald-500 font-bold">✓</span> Aucune dépendance externe — Tailwind CSS embarqué en local</li>
-        </ul>
-      </section>
+ <!-- Requirements -->
+ <section class="mb-10">
+ <h2 class="text-2xl font-bold text-slate-900 mb-4">Pré-requis</h2>
+ <ul class="space-y-2">
+ <li class="flex items-center gap-3 text-slate-700"><span class="text-emerald-500 font-bold">✓</span> WordPress 6.0+</li>
+ <li class="flex items-center gap-3 text-slate-700"><span class="text-emerald-500 font-bold">✓</span> PHP 7.4+ (8.1+ recommandé)</li>
+ <li class="flex items-center gap-3 text-slate-700"><span class="text-emerald-500 font-bold">✓</span> Éditeur Gutenberg actif</li>
+ <li class="flex items-center gap-3 text-slate-700"><span class="text-emerald-500 font-bold">✓</span> Aucune dépendance externe — Tailwind CSS embarqué en local</li>
+ </ul>
+ </section>
 
-    </article>
-  </main>
+ </article>
+ </main>
 
 </body>
 </html>
