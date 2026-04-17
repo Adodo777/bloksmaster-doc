@@ -1,5 +1,0 @@
-* [Accueil](README.md)
-* [1. Le Lab Blocks Master](lab.md)
-* [2. SiteMaster : Donnees et Modeles](sitemaster.md)
-* [3. Utiliser les Icones (Lucide)](icones.md)
-* [4. Reference API](api.md)

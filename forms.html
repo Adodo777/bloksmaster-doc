@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaires Headless — Blocks Master Documentation</title>
+  <meta name="description" content="Guide du module Formulaires SiteMaster : configuration, types de champs, helpers PHP, gestion des erreurs sans session PHP, AJAX. Inclut les cas spéciaux textarea et select.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+    .prose pre { margin: 0; background: transparent; padding: 0; }
+    .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #4338ca; }
+    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans">
+
+  <!-- SIDEBAR -->
+  <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 overflow-y-auto z-20 flex flex-col">
+    <div class="px-6 py-6 border-b border-slate-700">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-7 h-7 bg-indigo-600 rounded-md flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <span class="text-white font-bold text-sm">Blocks Master</span>
+      </div>
+      <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
+    </div>
+    <nav class="flex-1 px-4 py-6 space-y-1">
+      <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
+      <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Accueil
+      </a>
+      <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Le Lab
+      </a>
+      <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+        SiteMaster
+      </a>
+      <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Formulaires Headless
+      </a>
+      <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Icônes Lucide
+      </a>
+      <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Référence API
+      </a>
+    </nav>
+    <div class="px-4 py-4 border-t border-slate-700">
+      <p class="text-slate-500 text-xs">Développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="ml-64 min-h-screen">
+    <article class="max-w-4xl mx-auto px-8 py-12 prose prose-slate prose-indigo prose-pre:rounded-xl prose-pre:bg-slate-800 prose-pre:shadow-lg max-w-none">
+
+      <div class="not-prose mb-2">
+        <span class="text-xs font-semibold text-violet-600 uppercase tracking-wider">Module 3</span>
+      </div>
+      <h1>Formulaires Headless</h1>
+      <p class="lead">Le module Formulaires adopte une philosophie "Headless" : le plugin gère la configuration, la sécurité, la validation, le stockage et les emails. Vous avez une liberté totale pour construire le HTML comme vous le souhaitez.</p>
+
+      <div class="not-prose grid grid-cols-4 gap-3 my-8">
+        <div class="text-center p-3 bg-white border border-slate-200 rounded-lg">
+          <div class="text-2xl mb-1">🔒</div>
+          <p class="text-xs font-medium text-slate-600">Nonce & Sécurité</p>
+        </div>
+        <div class="text-center p-3 bg-white border border-slate-200 rounded-lg">
+          <div class="text-2xl mb-1">✅</div>
+          <p class="text-xs font-medium text-slate-600">Validation Serveur</p>
+        </div>
+        <div class="text-center p-3 bg-white border border-slate-200 rounded-lg">
+          <div class="text-2xl mb-1">📧</div>
+          <p class="text-xs font-medium text-slate-600">Emails Auto</p>
+        </div>
+        <div class="text-center p-3 bg-white border border-slate-200 rounded-lg">
+          <div class="text-2xl mb-1">🗄️</div>
+          <p class="text-xs font-medium text-slate-600">Stockage DB</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>Configuration dans le Lab</h2>
+      <p>Rendez-vous dans <strong>Blocks Master Lab → Formulaires</strong> :</p>
+
+      <h3>Onglet Champs</h3>
+      <p>Définissez vos champs avec :</p>
+      <ul>
+        <li><strong>Clé</strong> : Identifiant technique utilisé dans le code (ex: <code>email</code>, <code>sujet</code>).</li>
+        <li><strong>Label</strong> : Texte affiché dans les emails et les soumissions.</li>
+        <li><strong>Type</strong> : <code>text</code>, <code>textarea</code>, <code>email</code>, <code>tel</code>, <code>number</code>, <code>select</code>, <code>radio</code>, <code>checkbox</code>.</li>
+        <li><strong>Requis</strong> : Cochez pour rendre le champ obligatoire.</li>
+        <li><strong>Options</strong> (pour <code>select</code>/<code>radio</code>) : JSON <code>["A","B","C"]</code> ou liste <code>A,B,C</code>.</li>
+      </ul>
+
+      <h3>Onglet Emails Admin &amp; Utilisateur</h3>
+      <p>Configurez le sujet et le corps avec des <strong>placeholders</strong> dynamiques entourés d'accolades :</p>
+      <pre><code class="language-bash">Sujet : Nouvelle demande de {prenom} {nom}
+
+Corps :
+Prénom  : {prenom}
+Email   : {email}
+Message : {message}
+Reçu le : {date}</code></pre>
+
+      <hr>
+
+      <h2>Intégration PHP — Exemple Complet</h2>
+      <p>Pour afficher un formulaire dans un bloc PHP, utilisez les helpers API :</p>
+      <pre><code class="language-php">&lt;?php $slug = 'contact'; ?&gt;
+
+&lt;?php if (sm_form_has_success($slug)): ?&gt;
+    &lt;div class="tw-bg-emerald-50 tw-border tw-border-emerald-200 tw-rounded-lg tw-p-4"&gt;
+        &lt;p class="tw-text-emerald-700 tw-font-medium"&gt;
+            &lt;?= sm_get_form_success_message($slug) ?&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;?php else: ?&gt;
+
+    &lt;form method="POST" class="tw-space-y-4"&gt;
+        &lt;?php sm_form_nonce_field($slug); ?&gt;
+
+        &lt;!-- Champ Texte --&gt;
+        &lt;div&gt;
+            &lt;label class="tw-block tw-text-sm tw-font-medium tw-text-slate-700"&gt;Nom&lt;/label&gt;
+            &lt;input type="text" name="nom"
+                   value="&lt;?= esc_attr(sm_form_old_value($slug, 'nom')) ?&gt;"
+                   class="tw-mt-1 tw-block tw-w-full tw-border tw-rounded-md tw-px-3 tw-py-2"&gt;
+            &lt;?php sm_form_field_error($slug, 'nom'); ?&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Champ Email --&gt;
+        &lt;div&gt;
+            &lt;label class="tw-block tw-text-sm tw-font-medium tw-text-slate-700"&gt;Email&lt;/label&gt;
+            &lt;input type="email" name="email"
+                   value="&lt;?= esc_attr(sm_form_old_value($slug, 'email')) ?&gt;"
+                   class="tw-mt-1 tw-block tw-w-full tw-border tw-rounded-md tw-px-3 tw-py-2"&gt;
+            &lt;?php sm_form_field_error($slug, 'email'); ?&gt;
+        &lt;/div&gt;
+
+        &lt;button type="submit" class="tw-bg-indigo-600 tw-text-white tw-px-6 tw-py-2 tw-rounded-lg"&gt;
+            Envoyer
+        &lt;/button&gt;
+    &lt;/form&gt;
+
+&lt;?php endif; ?&gt;</code></pre>
+
+      <hr>
+
+      <h2>Types spéciaux : <code>textarea</code> et <code>select</code></h2>
+
+      <div class="not-prose flex gap-3 p-4 rounded-lg bg-red-50 border-l-4 border-red-500 my-6">
+        <span class="text-red-600 font-semibold text-sm shrink-0">🔴 IMPORTANT</span>
+        <p class="text-slate-700 text-sm m-0">Les champs <code>textarea</code> et <code>select</code> <strong>ne peuvent pas être rendus avec une balise <code>&lt;input&gt;</code></strong>. Le handler backend reçoit bien les données, mais le navigateur ne les enverra pas si le markup HTML est incorrect.</p>
+      </div>
+
+      <h3>Textarea — Champ texte long</h3>
+      <pre><code class="language-php">&lt;div&gt;
+    &lt;label class="tw-block tw-text-sm tw-font-medium tw-text-slate-700"&gt;Message&lt;/label&gt;
+    &lt;textarea name="message" rows="5"
+              class="tw-mt-1 tw-block tw-w-full tw-border tw-rounded-md tw-px-3 tw-py-2"&gt;&lt;?= esc_html(sm_form_old_value($slug, 'message')) ?&gt;&lt;/textarea&gt;
+    &lt;?php sm_form_field_error($slug, 'message'); ?&gt;
+&lt;/div&gt;</code></pre>
+
+      <div class="not-prose flex gap-3 p-4 rounded-lg bg-amber-50 border-l-4 border-amber-500 my-4">
+        <span class="text-amber-600 font-semibold text-sm shrink-0">⚠️ ATTENTION</span>
+        <p class="text-slate-700 text-sm m-0">La valeur pour <code>textarea</code> se place entre les balises ouvrante et fermante, <strong>sans espace ni retour à la ligne</strong> avant/après. Un espace parasite sera affiché dans le champ.</p>
+      </div>
+
+      <h3>Select — Liste déroulante</h3>
+      <pre><code class="language-php">&lt;div&gt;
+    &lt;label class="tw-block tw-text-sm tw-font-medium tw-text-slate-700"&gt;Sujet&lt;/label&gt;
+    &lt;select name="sujet" class="tw-mt-1 tw-block tw-w-full tw-border tw-rounded-md tw-px-3 tw-py-2"&gt;
+        &lt;option value=""&gt;-- Choisissez un sujet --&lt;/option&gt;
+        &lt;?php foreach (sm_form_get_field_options($slug, 'sujet') as $option): ?&gt;
+            &lt;option value="&lt;?= esc_attr($option) ?&gt;"
+                    &lt;?= selected(sm_form_old_value($slug, 'sujet'), $option, false) ?&gt;&gt;
+                &lt;?= esc_html($option) ?&gt;
+            &lt;/option&gt;
+        &lt;?php endforeach; ?&gt;
+    &lt;/select&gt;
+    &lt;?php sm_form_field_error($slug, 'sujet'); ?&gt;
+&lt;/div&gt;</code></pre>
+
+      <hr>
+
+      <h2>Flash Messages — Comment ça marche</h2>
+      <p>SiteMaster n'utilise <strong>aucune session PHP</strong> (<code>session_start()</code>). Les erreurs et les anciennes valeurs sont transmises via des <strong>Transients WordPress</strong> avec un token unique dans l'URL.</p>
+
+      <div class="not-prose my-6 bg-white border border-slate-200 rounded-xl overflow-hidden">
+        <div class="bg-slate-50 border-b border-slate-200 px-5 py-3">
+          <p class="text-slate-700 font-semibold text-sm">Cycle PRG (Post/Redirect/Get)</p>
+        </div>
+        <div class="p-5 space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs font-bold">1</span>
+            <p class="text-sm text-slate-700">L'utilisateur soumet le formulaire (<code>POST</code>).</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs font-bold">2</span>
+            <p class="text-sm text-slate-700">Les erreurs + anciennes valeurs sont stockées dans un transient avec un token unique (5 min).</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 bg-slate-200 text-slate-600 rounded-full flex items-center justify-center text-xs font-bold">3</span>
+            <p class="text-sm text-slate-700">Redirection vers <code>?sm_form_token=xyz</code>.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="w-6 h-6 bg-indigo-600 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
+            <p class="text-sm text-slate-700">La page se recharge (<code>GET</code>). Les helpers lisent et <strong>effacent</strong> le transient en une seule lecture (one-shot).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="not-prose flex gap-3 p-4 rounded-lg bg-indigo-50 border-l-4 border-indigo-500 my-6">
+        <span class="text-indigo-600 font-semibold text-sm shrink-0">💡 TIP</span>
+        <p class="text-slate-700 text-sm m-0">Ce mécanisme est 100% compatible avec Cloudflare, WP Rocket, LiteSpeed Cache et les hébergements qui n'autorisent pas les sessions PHP.</p>
+      </div>
+
+      <hr>
+
+      <h2>Mode Expert — Validation AJAX</h2>
+      <p>Si vous gérez la soumission en JavaScript, vous pouvez réutiliser le moteur de validation de SiteMaster directement dans votre endpoint WordPress :</p>
+      <pre><code class="language-php">add_action('wp_ajax_nopriv_mon_form', 'mon_handler_ajax');
+function mon_handler_ajax(): void {
+    check_ajax_referer('sm_submit_form_contact', 'sm_form_nonce');
+
+    $result = sm_form_validate('contact', $_POST);
+
+    if (!$result['success']) {
+        // $result['errors'] : tableau [field_key => message d'erreur]
+        wp_send_json_error($result['errors']);
+    }
+
+    // $result['data'] : données sanitisées et prêtes à l'insertion
+    sm_insert_form_entry($form->id, $result['data']);
+    wp_send_json_success(['message' => 'Formulaire envoyé avec succès']);
+}</code></pre>
+
+    </article>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>

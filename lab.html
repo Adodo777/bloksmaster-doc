@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Lab — Blocks Master Documentation</title>
+  <meta name="description" content="Guide complet du Lab Blocks Master : créer des blocs Gutenberg en PHP, gérer les versions, définir des attributs éditables et configurer Tailwind CSS.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+    .prose pre { margin: 0; background: transparent; padding: 0; }
+    .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #4338ca; }
+    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans">
+
+  <!-- SIDEBAR -->
+  <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 overflow-y-auto z-20 flex flex-col">
+    <div class="px-6 py-6 border-b border-slate-700">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-7 h-7 bg-indigo-600 rounded-md flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <span class="text-white font-bold text-sm">Blocks Master</span>
+      </div>
+      <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
+    </div>
+    <nav class="flex-1 px-4 py-6 space-y-1">
+      <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
+      <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Accueil
+      </a>
+      <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Le Lab
+      </a>
+      <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+        SiteMaster
+      </a>
+      <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Formulaires Headless
+      </a>
+      <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Icônes Lucide
+      </a>
+      <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Référence API
+      </a>
+    </nav>
+    <div class="px-4 py-4 border-t border-slate-700">
+      <p class="text-slate-500 text-xs">Développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="ml-64 min-h-screen">
+    <article class="max-w-4xl mx-auto px-8 py-12 prose prose-slate prose-indigo prose-pre:rounded-xl prose-pre:bg-slate-800 prose-pre:shadow-lg max-w-none">
+
+      <div class="not-prose mb-2">
+        <span class="text-xs font-semibold text-indigo-600 uppercase tracking-wider">Module 1</span>
+      </div>
+      <h1>Le Lab Blocks Master</h1>
+      <p class="lead">Le Lab est l'environnement de développement intégré (IDE) de SiteMaster. Il vous permet de concevoir, tester et gérer vos blocs Gutenberg directement depuis votre navigateur, sans ouvrir un terminal ou votre IDE local.</p>
+
+      <hr>
+
+      <h2>Créer son premier bloc</h2>
+      <p>Le processus est volontairement minimal :</p>
+      <ol>
+        <li>Donnez un <strong>Nom</strong> à votre bloc (ex: "Hero Slider").</li>
+        <li>Optionnel : choisissez une <strong>Icône</strong> (Lucide) et une <strong>Catégorie</strong> Gutenberg.</li>
+        <li>Écrivez votre <strong>Code PHP/HTML</strong> dans l'éditeur.</li>
+        <li>Cliquez sur <strong>Enregistrer</strong>.</li>
+      </ol>
+      <p>Le bloc est instantanément disponible dans Gutenberg, sans rechargement de page. Aucune compilation, aucun build.</p>
+
+      <h3>Exemple de bloc minimaliste</h3>
+      <pre><code class="language-html">&lt;div class="tw-bg-slate-900 tw-p-10 tw-rounded-2xl"&gt;
+    &lt;h1 class="tw-text-white tw-text-4xl tw-font-bold"&gt;
+        Bonjour depuis mon bloc
+    &lt;/h1&gt;
+    &lt;p class="tw-text-slate-400 tw-mt-3"&gt;
+        Rendu via Blocks Master, en PHP pur.
+    &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+      <h3>Exemple avec PHP dynamique</h3>
+      <pre><code class="language-php">&lt;div class="tw-p-6"&gt;
+    &lt;h1&gt;&lt;?= get_the_title() ?&gt;&lt;/h1&gt;
+    &lt;p&gt;Publié le &lt;?= get_the_date() ?&gt;&lt;/p&gt;
+    &lt;?= get_the_content() ?&gt;
+&lt;/div&gt;</code></pre>
+
+      <hr>
+
+      <h2>Stockage &amp; Synchronisation (Hybride)</h2>
+      <p>Blocks Master v3.0 utilise un système de stockage hybride :</p>
+      <ul>
+        <li><strong>Base de Données</strong> (<code>wp_blocks_master</code>) : votre code est stocké en DB pour garantir l'intégrité et permettre le versionnement.</li>
+        <li><strong>Filesystem</strong> (<code>/blocks/*.php</code>) : une copie physique est générée à chaque sauvegarde.</li>
+        <li><strong>Rendu</strong> : WordPress inclut directement le fichier physique, ce qui est aussi rapide que du code natif inclus dans un thème.</li>
+      </ul>
+
+      <div class="not-prose flex gap-3 p-4 rounded-lg bg-amber-50 border-l-4 border-amber-500 my-6">
+        <span class="text-amber-600 font-semibold text-sm shrink-0">⚠️ ATTENTION</span>
+        <p class="text-slate-700 text-sm m-0">Ne modifiez pas les fichiers dans <code>/blocks/</code> directement via FTP ou un éditeur de fichiers. Vos changements seraient écrasés par la base de données lors de la prochaine sauvegarde dans le Lab.</p>
+      </div>
+
+      <hr>
+
+      <h2>Historique des Versions</h2>
+      <p>Le Lab conserve automatiquement les <strong>5 dernières versions</strong> de chaque bloc. En bas de l'éditeur, une liste vous permet de consulter et de <strong>restaurer</strong> un état précédent en un clic.</p>
+      <p>Si vous avez cassé votre bloc ou souhaitez revenir à un design précédent, ouvrez l'onglet <strong>"Historique"</strong> dans le Lab et cliquez sur "Restaurer" à côté de la version cible.</p>
+
+      <hr>
+
+      <h2>Attributs de Bloc (Paramètres Gutenberg)</h2>
+      <p>Le système d'attributs transforme un bloc statique en un composant éditable directement depuis la barre latérale de Gutenberg — sans quitter le Lab.</p>
+      <p>Dans l'onglet <strong>"Attributs"</strong>, pour chaque attribut, vous définissez :</p>
+      <ul>
+        <li><strong>Clé</strong> : L'identifiant utilisé dans le code (ex: <code>couleur_fond</code>, <code>titre</code>).</li>
+        <li><strong>Label</strong> : Le nom affiché dans la barre latérale de Gutenberg ou d'Elementor.</li>
+        <li><strong>Type</strong> :
+          <ul>
+            <li><code>text</code> — Texte court (TextControl Gutenberg)</li>
+            <li><code>number</code> — Nombre ou slider (RangeControl)</li>
+            <li><code>boolean</code> — Case à cocher / Toggle</li>
+            <li><code>color</code> — Palette couleur</li>
+            <li><code>select</code> — Liste déroulante</li>
+            <li><code>image</code> — Sélecteur médias WordPress</li>
+          </ul>
+        </li>
+        <li><strong>Défaut</strong> : La valeur utilisée si aucune valeur n'a été saisie par l'éditeur.</li>
+      </ul>
+
+      <h3>Récupérer un attribut dans le code</h3>
+      <p>Tous les attributs définis sont injectés dans la variable <code>$attributes</code>, disponible globalement dans votre code de bloc :</p>
+      <pre><code class="language-php">&lt;?php
+$titre      = esc_html($attributes['titre'] ?? 'Titre par défaut');
+$couleur    = esc_attr($attributes['couleur_fond'] ?? '#4f46e5');
+$lien_image = esc_url($attributes['image'] ?? '');
+?&gt;
+
+&lt;div style="background-color: &lt;?= $couleur ?&gt;"&gt;
+    &lt;h1 class="tw-text-white"&gt;&lt;?= $titre ?&gt;&lt;/h1&gt;
+    &lt;?php if ($lien_image): ?&gt;
+        &lt;img src="&lt;?= $lien_image ?&gt;" class="tw-w-full tw-rounded-xl" alt=""&gt;
+    &lt;?php endif; ?&gt;
+&lt;/div&gt;</code></pre>
+
+      <hr>
+
+      <h2>Support Tailwind CSS</h2>
+      <p>Le plugin embarque Tailwind CSS compilé en local. Pour éviter tout conflit avec le thème ou le back-office WordPress, vous <strong>devez</strong> utiliser le préfixe <code>tw-</code> sur toutes vos classes.</p>
+
+      <div class="not-prose grid grid-cols-2 gap-4 my-6">
+        <div class="p-4 bg-red-50 border border-red-200 rounded-lg">
+          <p class="text-red-600 font-semibold text-sm mb-2">❌ Incorrect</p>
+          <code class="text-sm text-red-700">class="bg-blue-500 rounded p-4"</code>
+        </div>
+        <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-lg">
+          <p class="text-emerald-600 font-semibold text-sm mb-2">✅ Correct</p>
+          <code class="text-sm text-emerald-700">class="tw-bg-blue-500 tw-rounded tw-p-4"</code>
+        </div>
+      </div>
+
+      <div class="not-prose flex gap-3 p-4 rounded-lg bg-indigo-50 border-l-4 border-indigo-500 my-6">
+        <span class="text-indigo-600 font-semibold text-sm shrink-0">💡 TIP</span>
+        <p class="text-slate-700 text-sm m-0">Si vous utilisez des valeurs arbitraires Tailwind (ex: <code>tw-w-[423px]</code>) et que le style ne s'applique pas, privilégiez un attribut <code>style="..."</code> inline. Plus fiable dans l'iframe de l'éditeur Gutenberg.</p>
+      </div>
+
+      <hr>
+
+      <h2>Sécurité Serveur — <code>DISALLOW_FILE_EDIT</code></h2>
+      <p>Pour les environnements de production hautement sécurisés, Blocks Master respecte les directives WordPress.</p>
+
+      <div class="not-prose flex gap-3 p-4 rounded-lg bg-amber-50 border-l-4 border-amber-500 my-6">
+        <span class="text-amber-600 font-semibold text-sm shrink-0">⚠️ WARNING</span>
+        <p class="text-slate-700 text-sm m-0">Si la constante <code>DISALLOW_FILE_EDIT</code> est activée dans votre <code>wp-config.php</code>, <strong>l'accès au Lab est automatiquement bloqué</strong>. C'est une décision intentionnelle — si votre serveur interdit les modifications de fichiers via le dashboard, le Lab le respecte.</p>
+      </div>
+
+      <pre><code class="language-php">// Dans wp-config.php
+define('DISALLOW_FILE_EDIT', true);</code></pre>
+
+      <p>Beaucoup d'hébergeurs activent cette constante par défaut pour des raisons de sécurité. Si votre Lab est bloqué sans raison apparente, vérifiez ce fichier en premier.</p>
+
+      <hr>
+
+      <h2>Support Elementor</h2>
+      <p>Si Elementor est installé sur le site, chaque bloc créé dans le Lab est <strong>automatiquement disponible</strong> dans le panel de widgets, dans la catégorie <strong>"SiteMaster"</strong>. Aucune configuration requise.</p>
+      <ul>
+        <li>Les attributs que vous avez définis deviennent des contrôles Elementor natifs (Color Picker, Toggle, Number, etc.).</li>
+        <li>Le rendu est identique à Gutenberg — le même fichier PHP est inclus.</li>
+        <li>Le widget porte le nom de votre bloc et son icône <code>eicon-code</code>.</li>
+      </ul>
+
+      <hr>
+
+      <h2>Régénération manuelle des fichiers</h2>
+      <p>Si vos fichiers <code>/blocks/*.php</code> sont perdus (migration, restauration de DB), un bouton <strong>"🔄 Régénérer tous les fichiers"</strong> est disponible dans la barre latérale du Lab. Il recrée tous les fichiers depuis la base de données en un clic.</p>
+
+      <div class="not-prose flex gap-3 p-4 rounded-lg bg-indigo-50 border-l-4 border-indigo-500 my-6">
+        <span class="text-indigo-600 font-semibold text-sm shrink-0">💡 TIP</span>
+        <p class="text-slate-700 text-sm m-0">La régénération est utile après une migration de base de données. La DB est la source de vérité — les fichiers ne sont que son miroir de performance.</p>
+      </div>
+
+
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Référence API PHP — Blocks Master Documentation</title>
+  <meta name="description" content="Référence complète de l'API PHP de SiteMaster. Helpers Core (Items/Champs), Helpers Forms (Formulaires), et conseils SMTP pour la délivrabilité des emails.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <style>
+    .prose pre { margin: 0; background: transparent; padding: 0; }
+    .prose code:not(pre code) { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #4338ca; }
+    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0f172a; } ::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+    .fn-anchor { scroll-margin-top: 2rem; }
+  </style>
+</head>
+<body class="bg-slate-50 font-sans">
+
+  <!-- SIDEBAR -->
+  <aside class="fixed left-0 top-0 h-screen w-64 bg-slate-900 overflow-y-auto z-20 flex flex-col">
+    <div class="px-6 py-6 border-b border-slate-700">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-7 h-7 bg-indigo-600 rounded-md flex items-center justify-center">
+          <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <span class="text-white font-bold text-sm">Blocks Master</span>
+      </div>
+      <p class="text-slate-400 text-xs mt-1">Documentation v3.0</p>
+    </div>
+    <nav class="flex-1 px-4 py-6 space-y-1">
+      <p class="text-slate-500 text-xs font-semibold uppercase tracking-wider px-2 mb-3">Navigation</p>
+      <a href="index.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Accueil
+      </a>
+      <a href="lab.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Le Lab
+      </a>
+      <a href="sitemaster.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+        SiteMaster
+      </a>
+      <a href="forms.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Formulaires Headless
+      </a>
+      <a href="icones.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:bg-slate-700 hover:text-white transition-colors">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Icônes Lucide
+      </a>
+      <a href="api.html" class="flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-indigo-600 text-white">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Référence API
+      </a>
+
+      <!-- Sous-navigation API -->
+      <div class="pl-6 pt-1 space-y-1">
+        <a href="#core" class="block text-xs text-slate-400 hover:text-slate-200 py-1">Core SiteMaster</a>
+        <a href="#forms" class="block text-xs text-slate-400 hover:text-slate-200 py-1">Forms Helpers</a>
+        <a href="#smtp" class="block text-xs text-slate-400 hover:text-slate-200 py-1">Emails & SMTP</a>
+        <a href="#security" class="block text-xs text-slate-400 hover:text-slate-200 py-1">Sécurité</a>
+      </div>
+    </nav>
+    <div class="px-4 py-4 border-t border-slate-700">
+      <p class="text-slate-500 text-xs">Développé par <span class="text-slate-300 font-medium">Marcos KINTOHO</span></p>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="ml-64 min-h-screen">
+    <article class="max-w-4xl mx-auto px-8 py-12 prose prose-slate prose-indigo prose-pre:rounded-xl prose-pre:bg-slate-800 prose-pre:shadow-lg max-w-none">
+
+      <h1>Référence API PHP</h1>
+      <p class="lead">L'intégralité des fonctions utilitaires disponibles dans vos blocs PHP. Classées par module pour un accès rapide.</p>
+
+      <!-- Badges -->
+      <div class="not-prose flex flex-wrap gap-2 my-6">
+        <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-medium rounded-full">Core SiteMaster</span>
+        <span class="px-3 py-1 bg-violet-100 text-violet-700 text-xs font-medium rounded-full">SiteMaster Forms</span>
+        <span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Sécurité</span>
+      </div>
+
+      <hr>
+
+      <!-- ===== CORE ===== -->
+      <h2 id="core" class="fn-anchor">Core SiteMaster — Items &amp; Champs</h2>
+      <p>Ces fonctions s'utilisent dans vos blocs sur les pages qui affichent un Item dynamique (via le Routage URL). Elles lisent automatiquement le contexte courant sans que vous ayez à passer un ID.</p>
+
+      <!-- sm_get_current_value -->
+      <div class="not-prose bg-white border border-l-4 border-l-emerald-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_get_current_value( string $key )</code>
+          <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-medium">Core</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne la valeur d'un champ personnalisé de l'Item en cours. <code>$key</code> correspond à la clé unique définie lors de la configuration du champ dans le Groupe.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;h2&gt;&lt;?= esc_html(sm_get_current_value('titre_section')) ?&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;?= esc_html(sm_get_current_value('prix')) ?&gt; € / mois&lt;/p&gt;</code></pre>
+      </div>
+
+      <!-- sm_get_current_term_name -->
+      <div class="not-prose bg-white border border-l-4 border-l-emerald-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_get_current_term_name()</code>
+          <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-medium">Core</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne le <strong>titre</strong> de l'Item en cours de lecture. Pratique pour les balises <code>&lt;h1&gt;</code> de vos templates.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;h1 class="tw-text-4xl tw-font-bold"&gt;
+    &lt;?= esc_html(sm_get_current_term_name()) ?&gt;
+&lt;/h1&gt;</code></pre>
+      </div>
+
+      <!-- sm_get_current_content -->
+      <div class="not-prose bg-white border border-l-4 border-l-emerald-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_get_current_content()</code>
+          <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-medium">Core</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne le contenu Gutenberg complet de l'Item (HTML déjà généré), images et blocs inclus.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;div class="tw-prose tw-max-w-none"&gt;
+    &lt;?= sm_get_current_content() ?&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <!-- sm_get_current_term_id -->
+      <div class="not-prose bg-white border border-l-4 border-l-emerald-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_get_current_term_id()</code>
+          <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-medium">Core</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne l'ID WordPress (entier) de l'Item actuel. Utile pour des requêtes personnalisées ou des hooks.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;?php $post_id = sm_get_current_term_id(); ?&gt;
+&lt;?php $galerie = get_post_meta($post_id, '_galerie_photos', true); ?&gt;</code></pre>
+      </div>
+
+      <!-- sm_get_current_values -->
+      <div class="not-prose bg-white border border-l-4 border-l-emerald-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_get_current_values() : array</code>
+          <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-medium">Core</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne tous les champs structurés de l'Item courant sous forme d'un tableau <code>[field_key =&gt; valeur]</code>. Utile pour un affichage en boucle ou pour debugger.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;?php $values = sm_get_current_values(); ?&gt;
+&lt;?php foreach ($values as $key =&gt; $val): ?&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;?= esc_html($key) ?&gt;&lt;/strong&gt; : &lt;?= esc_html($val) ?&gt;&lt;/p&gt;
+&lt;?php endforeach; ?&gt;</code></pre>
+      </div>
+
+      <!-- sm_get_terms_for_path -->
+      <div class="not-prose bg-white border border-l-4 border-l-emerald-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_get_terms_for_path( string $path ) : array</code>
+          <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-medium">Core</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne tous les Items publiés d'un groupe en passant son <strong>listing_path</strong>. Indispensable pour construire une page de listing manuellement dans un bloc.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;?php $services = sm_get_terms_for_path('services'); ?&gt;
+
+&lt;div class="tw-grid tw-grid-cols-3 tw-gap-6"&gt;
+    &lt;?php foreach ($services as $service): ?&gt;
+        &lt;a href="&lt;?= esc_url(sm_get_term_url($service)) ?&gt;"&gt;
+            &lt;?= esc_html($service-&gt;post_title) ?&gt;
+        &lt;/a&gt;
+    &lt;?php endforeach; ?&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+
+      <!-- sm_get_term_url -->
+      <div class="not-prose bg-white border border-l-4 border-l-emerald-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_get_term_url( WP_Post $term ) : string</code>
+          <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full font-medium">Core</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Construit l'URL canonique d'un Item (ex: <code>/services/nettoyage/</code>). Utilise le <code>listing_path</code> du groupe et le slug de l'Item.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;a href="&lt;?= esc_url(sm_get_term_url($service)) ?&gt;" class="tw-font-medium"&gt;
+    &lt;?= esc_html($service-&gt;post_title) ?&gt;
+&lt;/a&gt;</code></pre>
+      </div>
+
+      <hr>
+
+      <!-- ===== FORMS ===== -->
+      <h2 id="forms" class="fn-anchor">SiteMaster Forms — Helpers Formulaires</h2>
+      <p>Ces fonctions sont disponibles dès lors que le module Forms est actif. Elles n'ont aucune dépendance avec le module Core.</p>
+
+      <!-- sm_form_nonce_field -->
+      <div class="not-prose bg-white border border-l-4 border-l-violet-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_form_nonce_field( string $slug )</code>
+          <span class="px-2 py-0.5 bg-violet-100 text-violet-700 text-xs rounded-full font-medium">Forms</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3"><strong>Obligatoire.</strong> Affiche les champs cachés de sécurité (nonce + slug). À placer dans la balise <code>&lt;form&gt;</code>.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;form method="POST"&gt;
+    &lt;?php sm_form_nonce_field('contact'); ?&gt;
+    ...
+&lt;/form&gt;</code></pre>
+      </div>
+
+      <!-- sm_form_has_success -->
+      <div class="not-prose bg-white border border-l-4 border-l-violet-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_form_has_success( string $slug ) : bool</code>
+          <span class="px-2 py-0.5 bg-violet-100 text-violet-700 text-xs rounded-full font-medium">Forms</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne <code>true</code> si le formulaire vient d'être soumis avec succès. Détecte le paramètre <code>?sm_form_success=slug</code> dans l'URL.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;?php if (sm_form_has_success('contact')): ?&gt;
+    &lt;div class="tw-bg-emerald-50 tw-p-4 tw-rounded-lg"&gt;
+        &lt;?= sm_get_form_success_message('contact') ?&gt;
+    &lt;/div&gt;
+&lt;?php endif; ?&gt;</code></pre>
+      </div>
+
+      <!-- sm_form_has_errors -->
+      <div class="not-prose bg-white border border-l-4 border-l-violet-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_form_has_errors( string $slug ) : bool</code>
+          <span class="px-2 py-0.5 bg-violet-100 text-violet-700 text-xs rounded-full font-medium">Forms</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne <code>true</code> si des erreurs de validation existent pour ce formulaire (flash transient actif). Utile pour afficher un message d’erreur global en haut du formulaire.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;?php if (sm_form_has_errors('contact')): ?&gt;
+    &lt;div class="tw-bg-red-50 tw-border tw-border-red-200 tw-rounded-lg tw-p-4"&gt;
+        &lt;p class="tw-text-red-700"&gt;Certains champs sont invalides.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;?php endif; ?&gt;</code></pre>
+      </div>
+
+      <!-- sm_form_old_value -->
+      <div class="not-prose bg-white border border-l-4 border-l-violet-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_form_old_value( string $slug, string $key ) : string</code>
+          <span class="px-2 py-0.5 bg-violet-100 text-violet-700 text-xs rounded-full font-medium">Forms</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne la valeur saisie lors d'une soumission invalide. Utilisez-le dans l'attribut <code>value</code> pour ne pas perdre la saisie de l'utilisateur.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;input type="text" name="nom"
+       value="&lt;?= esc_attr(sm_form_old_value('contact', 'nom')) ?&gt;"&gt;
+
+&lt;textarea name="message"&gt;&lt;?= esc_html(sm_form_old_value('contact', 'message')) ?&gt;&lt;/textarea&gt;</code></pre>
+      </div>
+
+      <!-- sm_form_field_error -->
+      <div class="not-prose bg-white border border-l-4 border-l-violet-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_form_field_error( string $slug, string $key, string $class = 'sm-field-error' )</code>
+          <span class="px-2 py-0.5 bg-violet-100 text-violet-700 text-xs rounded-full font-medium">Forms</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Affiche directement un <code>&lt;span&gt;</code> contenant le message d'erreur pour un champ spécifique. Retourne rien si aucune erreur.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;?php sm_form_field_error('contact', 'email'); ?&gt;
+&lt;!-- Génère : &lt;span class="sm-field-error"&gt;Format invalide&lt;/span&gt; --&gt;
+
+&lt;!-- Avec classe personnalisée --&gt;
+&lt;?php sm_form_field_error('contact', 'email', 'tw-text-red-600 tw-text-sm'); ?&gt;</code></pre>
+      </div>
+
+      <!-- sm_form_get_field_options -->
+      <div class="not-prose bg-white border border-l-4 border-l-violet-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_form_get_field_options( string $slug, string $key ) : array</code>
+          <span class="px-2 py-0.5 bg-violet-100 text-violet-700 text-xs rounded-full font-medium">Forms</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Retourne la liste des options configurées pour un champ <code>select</code>, <code>radio</code> ou <code>checkbox</code>.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">&lt;select name="sujet"&gt;
+    &lt;?php foreach (sm_form_get_field_options('contact', 'sujet') as $opt): ?&gt;
+        &lt;option value="&lt;?= esc_attr($opt) ?&gt;"&gt;&lt;?= esc_html($opt) ?&gt;&lt;/option&gt;
+    &lt;?php endforeach; ?&gt;
+&lt;/select&gt;</code></pre>
+      </div>
+
+      <!-- sm_form_validate -->
+      <div class="not-prose bg-white border border-l-4 border-l-violet-500 border-slate-200 rounded-xl p-5 my-5">
+        <div class="flex items-center justify-between mb-3">
+          <code class="text-base font-bold text-slate-900">sm_form_validate( string $slug, array $data ) : array</code>
+          <span class="px-2 py-0.5 bg-violet-100 text-violet-700 text-xs rounded-full font-medium">Forms</span>
+        </div>
+        <p class="text-slate-600 text-sm mb-3">Moteur de validation universel. Valide et sanitise un tableau de données selon la configuration du formulaire. Retourne un tableau structuré.</p>
+        <pre class="bg-slate-800 rounded-lg p-4 text-sm overflow-x-auto"><code class="language-php">$result = sm_form_validate('contact', $_POST);
+
+// $result = [
+//   'success' => false,
+//   'errors'  => ['email' => 'Format invalide'],
+//   'data'    => ['nom' => 'Jean', 'email' => '']
+// ]
+
+if ($result['success']) {
+    sm_insert_form_entry($form->id, $result['data']);
+}</code></pre>
+      </div>
+
+      <hr>
+
+      <!-- ===== SMTP ===== -->
+      <h2 id="smtp" class="fn-anchor">Emails &amp; Délivrabilité SMTP</h2>
+
+      <div class="not-prose flex gap-3 p-4 rounded-lg bg-indigo-50 border-l-4 border-indigo-500 my-6">
+        <span class="text-indigo-600 font-semibold text-sm shrink-0">💡 TIP</span>
+        <div class="text-slate-700 text-sm">
+          <p class="m-0 mb-2">SiteMaster utilise <code>wp_mail()</code> pour tous ses envois (notifications admin et emails de confirmation utilisateur). Par défaut, <code>wp_mail()</code> envoie via le serveur mail de votre hébergeur, ce qui peut aboutir en SPAM.</p>
+          <p class="m-0"><strong>Pour une délivrabilité optimale en production, installez un plugin SMTP :</strong></p>
+          <ul class="mt-2 space-y-1 list-none pl-0">
+            <li>• <strong>FluentSMTP</strong> (recommandé, gratuit)</li>
+            <li>• <strong>WP Mail SMTP</strong></li>
+            <li>• <strong>Post SMTP</strong></li>
+          </ul>
+          <p class="mt-2 m-0">Configurez-le avec SendGrid, Mailgun, Amazon SES ou Gmail. <strong>Aucune configuration supplémentaire n'est requise dans SiteMaster</strong> — il utilisera automatiquement le SMTP configuré.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- ===== SECURITY ===== -->
+      <h2 id="security" class="fn-anchor">Bonnes pratiques de Sécurité</h2>
+      <p>Toutes les valeurs retournées par les helpers SiteMaster sont sanitisées côté serveur. Cependant, lors de l'affichage dans vos templates HTML, appliquez toujours les fonctions d'échappement WordPress :</p>
+
+      <div class="not-prose bg-white border border-slate-200 rounded-xl overflow-hidden my-6">
+        <table class="w-full text-sm">
+          <thead class="bg-slate-50 border-b border-slate-200">
+            <tr>
+              <th class="text-left px-5 py-3 font-semibold text-slate-700">Contexte d'affichage</th>
+              <th class="text-left px-5 py-3 font-semibold text-slate-700">Fonction à utiliser</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            <tr>
+              <td class="px-5 py-3 text-slate-700">Texte simple dans le HTML</td>
+              <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">esc_html()</code></td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3 text-slate-700">URL dans <code>href</code> ou <code>src</code></td>
+              <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">esc_url()</code></td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3 text-slate-700">Valeur dans un attribut HTML</td>
+              <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">esc_attr()</code></td>
+            </tr>
+            <tr>
+              <td class="px-5 py-3 text-slate-700">Contenu Gutenberg / HTML riche</td>
+              <td class="px-5 py-3"><code class="bg-slate-100 px-2 py-0.5 rounded text-xs text-indigo-700">wp_kses_post()</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <pre><code class="language-php">&lt;!-- Correct --&gt;
+&lt;h1&gt;&lt;?= esc_html(sm_get_current_term_name()) ?&gt;&lt;/h1&gt;
+&lt;img src="&lt;?= esc_url(sm_get_current_value('photo')) ?&gt;" alt=""&gt;
+&lt;div&gt;&lt;?= wp_kses_post(sm_get_current_content()) ?&gt;&lt;/div&gt;</code></pre>
+
+    </article>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-php.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup-templating.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+</body>
+</html>
